@@ -1,0 +1,36 @@
+.slot-box {
+  width: 70px;
+  height: 70px;
+  border-radius: 12px;
+  background: #2a2a2a;
+  border: 1px solid #444;
+  color: #ddd;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.slot-box.active {
+  background: linear-gradient(135deg, #e81cff, #40c9ff);
+  color: white;
+  box-shadow: 0 0 15px #40c9ff44;
+}
+
+.slot-box:hover {
+  transform: scale(1.05);
+  border-color: #40c9ff;
+}
+
+.dry-log-box {
+  background: #1e1e1e;
+  padding: 1rem;
+  border-radius: 5px;
+  font-family: monospace;
+  color: #ccc;
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #444;
+}
