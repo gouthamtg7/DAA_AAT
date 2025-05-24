@@ -35,6 +35,7 @@ export default function OptimizeScheduleVisualizer({ devices, slotCapacity = 300
           (hour) => (powerPerSlot[hour] || 0) + power <= slotCapacity
         );
 
+
         if (canFit) {
           candidate.forEach(hour => {
             powerPerSlot[hour] = (powerPerSlot[hour] || 0) + power;
@@ -92,19 +93,24 @@ export default function OptimizeScheduleVisualizer({ devices, slotCapacity = 300
       </div>
 
       <h4>🕐 Slot Usage (Timeline)</h4>
-      <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginTop: "1rem" }}>
-        {[...Array(24).keys()].map(hour => {
-          const totalPower = result.reduce((sum, d) =>
-            d.slots.includes(hour) ? sum + d.power : sum, 0);
+      <h4>🕐 Slot Usage (Timeline)</h4>
+<div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginTop: "1rem" }}>
+  {[...Array(24).keys()].map(hour => {
+    const devicesInSlot = result.filter(d => d.slots.includes(hour));
+    const totalPower = devicesInSlot.reduce((sum, d) => sum + d.power, 0);
 
-          return (
-            <div key={hour} className={`slot-box ${totalPower > 0 ? "active" : ""}`}>
-              {hour.toString().padStart(2, "0")}:00<br />
-              {totalPower}W
-            </div>
-          );
-        })}
+    return (
+      <div key={hour} className={`slot-box ${totalPower > 0 ? "active" : ""}`}>
+        <div style={{ fontWeight: "bold" }}>{hour.toString().padStart(2, "0")}:00</div>
+        <div>{totalPower}W</div>
+        <div style={{ fontSize: "0.7rem", marginTop: "2px" }}>
+          {devicesInSlot.map(d => d.name).join(", ")}
+        </div>
       </div>
+    );
+  })}
+</div>
+
     </div>
   );
 }
