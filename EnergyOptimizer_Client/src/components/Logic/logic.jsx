@@ -87,12 +87,11 @@ export default function OptimizeScheduleVisualizer({ devices, slotCapacity = 300
         </tbody>
       </table>
 
-      <h4>🪵 Console Logs</h4>
+      <h4>💻 Console Logs</h4>
       <div className="dry-log-box">
         {log.map((entry, i) => <div key={i}>{entry}</div>)}
       </div>
 
-      <h4>🕐 Slot Usage (Timeline)</h4>
       <h4>🕐 Slot Usage (Timeline)</h4>
 <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginTop: "1rem" }}>
   {[...Array(24).keys()].map(hour => {
