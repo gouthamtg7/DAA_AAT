@@ -87,7 +87,7 @@ export default function OptimizeScheduleVisualizer({ devices, slotCapacity = 300
         </tbody>
       </table>
 
-      <h4>🪵 Dry Run Log</h4>
+      <h4>🪵 Console Logs</h4>
       <div className="dry-log-box">
         {log.map((entry, i) => <div key={i}>{entry}</div>)}
       </div>

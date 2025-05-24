@@ -5,12 +5,6 @@ import OptimizeScheduleVisualizer from "../Logic/logic.jsx";
 
 
 export default function EntryUI(){
-    // 1 -> Welcome 
-    // 2 -> Device name (input text tag)
-    // 3 -> Power Usage (input text tag)
-    // 4 -> Duration (input number )
-    // 5 -> Preffered Time Slots (time slot selection )
-    // 6 -> Output schedule (table) with an option for detailed summary
     const [step, setStep] = useState(0);
     const [deviceName, setDeviceName] = useState([]);
     const [powerUsage, setPowerUsage] = useState([]);
